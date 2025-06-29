@@ -1,7 +1,7 @@
 # ClassLink Checker
 
-[![CI](https://github.com/username/classlink-checker/workflows/CI/badge.svg)](https://github.com/username/classlink-checker/actions)
-[![Coverage](https://codecov.io/gh/username/classlink-checker/branch/main/graph/badge.svg)](https://codecov.io/gh/username/classlink-checker)
+[![CI](https://github.com/herring101/classlink-checker/workflows/CI/badge.svg)](https://github.com/herring101/classlink-checker/actions)
+[![Coverage](https://codecov.io/gh/herring101/classlink-checker/branch/main/graph/badge.svg)](https://codecov.io/gh/herring101/classlink-checker)
 [![Crates.io](https://img.shields.io/crates/v/classlink-checker.svg)](https://crates.io/crates/classlink-checker)
 
 A powerful Rust-based command-line tool that analyzes class links and relationships in Markdown documentation files. Quickly identify isolated classes, analyze dependency patterns, and generate comprehensive statistics about your documentation structure.
@@ -20,11 +20,11 @@ A powerful Rust-based command-line tool that analyzes class links and relationsh
 
 ### From Releases (Recommended)
 
-Download the latest binary from the [releases page](https://github.com/username/classlink-checker/releases):
+Download the latest binary from the [releases page](https://github.com/herring101/classlink-checker/releases):
 
 ```bash
 # Linux/macOS
-curl -L https://github.com/username/classlink-checker/releases/latest/download/classlink-checker-linux-amd64 -o classlink-checker
+curl -L https://github.com/herring101/classlink-checker/releases/latest/download/classlink-checker-linux-amd64 -o classlink-checker
 chmod +x classlink-checker
 sudo mv classlink-checker /usr/local/bin/
 
@@ -39,7 +39,7 @@ sudo mv classlink-checker /usr/local/bin/
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Clone and build
-git clone https://github.com/username/classlink-checker.git
+git clone https://github.com/herring101/classlink-checker.git
 cd classlink-checker
 cargo build --release
 ```
@@ -177,7 +177,7 @@ When using `-o json`, the tool outputs structured data:
 ### Building
 
 ```bash
-git clone https://github.com/username/classlink-checker.git
+git clone https://github.com/herring101/classlink-checker.git
 cd classlink-checker
 cargo build
 ```
@@ -234,9 +234,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- 📚 [Documentation](https://github.com/username/classlink-checker/wiki)
-- 🐛 [Issue Tracker](https://github.com/username/classlink-checker/issues)
-- 💬 [Discussions](https://github.com/username/classlink-checker/discussions)
+- 📚 [Documentation](https://github.com/herring101/classlink-checker/wiki)
+- 🐛 [Issue Tracker](https://github.com/herring101/classlink-checker/issues)
+- 💬 [Discussions](https://github.com/herring101/classlink-checker/discussions)
 
 ---
 
