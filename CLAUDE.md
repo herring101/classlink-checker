@@ -2,12 +2,15 @@
 
 ## Project Description
 
-This is a Rust-based command-line tool that analyzes class links in Markdown documentation files. The tool can:
+This is a Rust-based command-line tool that analyzes class links across multiple programming languages and documentation formats. The tool can:
 
-- Parse Markdown files to detect class references and links between classes
+- **Multi-language support**: Python, TypeScript, C#, and Markdown files
+- **Automatic detection**: Zero-configuration file type detection
+- Parse source code and documentation to detect class references and dependencies
 - Identify isolated classes (classes with no incoming or outgoing links)
 - Generate statistical reports showing link counts and relationships
 - Output results in both human-readable text format and JSON format
+- **Seamless UX**: Single command works across all supported languages
 
 ## Current Task Status
 
@@ -18,11 +21,13 @@ This is a Rust-based command-line tool that analyzes class links in Markdown doc
 4. ✅ Link analysis and statistics generation
 5. ✅ CLI interface with clap for argument parsing
 
+### ✅ Completed (v2.0):
+1. ✅ **Multi-language Support**: Successfully implemented for:
+   - **Python**: Detects class definitions, imports, and type hints
+   - **C#**: Detects classes, interfaces, using statements, and inheritance
+   - **TypeScript**: Detects classes, interfaces, imports, and type annotations
+
 ### TODO - Future Enhancements:
-1. 🔄 **Multi-language Support**: Extend support for:
-   - **Python**: Detect class definitions (`class ClassName:`) and imports (`from module import ClassName`)
-   - **C#**: Detect class definitions (`public class ClassName`) and using statements
-   - **TypeScript**: Detect class definitions (`class ClassName`), interfaces (`interface IName`), and imports
 
 2. 🔄 **Advanced Features**:
    - Dependency graph visualization
