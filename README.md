@@ -4,14 +4,16 @@
 [![Coverage](https://codecov.io/gh/herring101/classlink-checker/branch/main/graph/badge.svg)](https://codecov.io/gh/herring101/classlink-checker)
 [![Crates.io](https://img.shields.io/crates/v/classlink-checker.svg)](https://crates.io/crates/classlink-checker)
 
-A powerful Rust-based command-line tool that analyzes class links and relationships in Markdown documentation files. Quickly identify isolated classes, analyze dependency patterns, and generate comprehensive statistics about your documentation structure.
+A powerful Rust-based command-line tool that analyzes class links and relationships across multiple programming languages. Automatically detects and analyzes Markdown documentation, Python, TypeScript, and C# source files. Quickly identify isolated classes, analyze dependency patterns, and generate comprehensive statistics about your codebase structure.
 
 ## Features
 
-- 🔍 **Smart Class Detection**: Automatically detects class definitions from Markdown headers
-- 🔗 **Link Analysis**: Identifies both explicit markdown links and implicit class references
+- 🌐 **Multi-Language Support**: Analyzes Python (.py), TypeScript (.ts/.tsx), C# (.cs), and Markdown (.md) files
+- 🔍 **Smart Class Detection**: Automatically detects classes, interfaces, and their relationships
+- 🔗 **Cross-Language Analysis**: Tracks dependencies across different programming languages
 - 📊 **Comprehensive Statistics**: Provides detailed reports on class relationships
 - 🏝️ **Isolation Detection**: Finds classes with no incoming or outgoing links
+- 🎯 **Zero Configuration**: Automatically detects file types and applies appropriate parsers
 - 📈 **Multiple Output Formats**: Support for human-readable text and JSON output
 - 🚀 **Fast & Efficient**: Built in Rust for maximum performance
 - 🔄 **Recursive Scanning**: Optionally scan entire directory trees
@@ -109,31 +111,62 @@ OPTIONS:
 
 ## Supported Patterns
 
-The tool recognizes several patterns for class links:
+The tool automatically detects and analyzes patterns across multiple languages:
 
-### 1. Markdown Links
+### Python (.py)
+```python
+# Class definitions
+class UserService:
+    def __init__(self):
+        self.db = DatabaseConnection()  # Detected dependency
+    
+# Import statements
+from models import User  # Detected dependency
+from database import DatabaseConnection
+
+# Type hints
+def get_user(self, id: int) -> User:  # Detected dependency
+    pass
+```
+
+### TypeScript (.ts, .tsx)
+```typescript
+// Class and interface definitions
+export class UserController {
+    constructor(private userService: UserService) {}  // Detected dependency
+}
+
+interface IAuthProvider {
+    login(credentials: Credentials): Promise<User>;  // Detected dependencies
+}
+
+// Import statements
+import { User } from './models/User';  // Detected dependency
+import { DatabaseService } from './services/database.service';
+```
+
+### C# (.cs)
+```csharp
+// Class definitions
+public class UserService : IUserService {  // Detected inheritance
+    private readonly DatabaseContext _context;  // Detected dependency
+    
+    public User GetUser(int id) {  // Detected return type
+        return _context.Users.Find(id);
+    }
+}
+
+// Using statements
+using Domain.Models;  // Detected namespace dependencies
+using Infrastructure.Data;
+```
+
+### Markdown (.md)
 ```markdown
 # UserService
 
 This service depends on [DatabaseConnection](DatabaseConnection.md) for data access.
-```
-
-### 2. Code References
-```markdown
-# UserManager
-
-```rust
-struct UserManager {
-    db: DatabaseConnection,
-    logger: Logger,
-}
-```
-
-### 3. Inline Class References
-```markdown
-# AuthenticationService
-
-The AuthenticationService works with UserManager to handle login operations.
+The `UserManager` class uses this service internally.
 ```
 
 ## JSON Output Format
@@ -215,11 +248,12 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 ## Future Enhancements
 
-- **Multi-language Support**: Python, C#, TypeScript class detection
+- **Additional Languages**: Java, Go, Ruby, PHP support
 - **Visualization**: Generate dependency graphs and diagrams
 - **Advanced Analytics**: Circular dependency detection, complexity metrics
-- **Integration**: IDE plugins, webhook support
-- **Export Formats**: CSV, GraphML, PlantUML outputs
+- **Integration**: IDE plugins, webhook support, language server protocol
+- **Export Formats**: CSV, GraphML, PlantUML, Mermaid diagram outputs
+- **Smart Refactoring**: Suggest architectural improvements based on coupling analysis
 
 ## License
 
